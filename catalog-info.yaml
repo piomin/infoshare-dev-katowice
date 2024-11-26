@@ -1,0 +1,26 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: infoshare-dev-katowice
+  title: infoshare-dev-katowice
+  annotations:
+    janus-idp.io/tekton: infoshare-dev-katowice
+    tektonci/build-namespace: demo
+    github.com/project-slug: piomin/infoshare-dev-katowice
+    sonarqube.org/project-key: piomin_infoshare-dev-katowice
+    backstage.io/kubernetes-id: infoshare-dev-katowice
+    backstage.io/techdocs-ref: dir:.
+    argocd/app-name: infoshare-dev-katowice
+    prometheus.io/rule: container_memory_usage_bytes{pod=~"infoshare-dev-katowice-.*"}|pod,rate(container_cpu_usage_seconds_total{pod=~"infoshare-dev-katowice-.*"}[5m])|pod
+  tags:
+    - spring-boot
+    - java
+    - maven
+    - tekton
+    - argocd
+    - renovate
+    - sonarqube
+spec:
+  type: service
+  owner: piomin
+  lifecycle: experimental
